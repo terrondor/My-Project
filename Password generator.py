@@ -42,7 +42,15 @@ def on_generate():
 
 
 def show_info():
-    messagebox.showinfo('Информация', 'Вас приветствует генератор паролей. Он поможет вам сгенерировать пароль.', )
+    about_window = tk.Toplevel(window)
+    about_window.title('Информация')
+    about_window.geometry('500x200')
+    about_window.configure(bg='#4e5aea')
+    about_window.iconbitmap('password.ico')
+    
+    lable_about = tk.Label(about_window, text='Информация: \nВас приветствует генератор паролей. \nОн поможет вам сгенерировать пароль.',
+                           bg='#4e5aea', fg='white', font=('Arial', 14), justify='center')
+    lable_about.pack(expand=True)
 
 
 def show_about():
@@ -86,9 +94,9 @@ button_generate.pack(pady=10)
 label_password = tk.Label(window, text='Сгенерированный пароль:', bg='#4e5aea', fg='white')
 label_password.pack(pady=10)
 
-label_generated_password = tk.Label(window, textvariable=password_var, bg='#4e5aea', fg='white',
-                                    font=('Arial', 12, 'bold'))
-label_generated_password.pack(pady=10)
+entry_generated_password = tk.Entry(window, textvariable=password_var, bg='#4e5aea', fg='black',
+                                    font=('Arial', 12, 'bold'), justify='center', state='readonly')
+entry_generated_password.pack(pady=10)
 
 label_strength = tk.Label(window, text='Сила пароля:', bg='#4e5aea', foreground='white')
 label_strength.pack(pady=10)
